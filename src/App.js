@@ -37,6 +37,9 @@ export default () => {
     return (
         <div>
             <Dropdown options={options} />
+            <div>
+                Some new stuff here!
+            </div>
         </div>
     );
 };
