@@ -7,29 +7,13 @@ const items = [
     {
         title: 'What is REACT?',
         content: 'REACT is a front-end framework'
-    },
-    {
-        title: 'Why use REACT',
-        content: 'REACT is a favorite JS library among engineers'
-    },
-    {
-        title: 'How do you use REACT?',
-        content: 'We use REACT by creating components'
-    },
+    }
 ];
 
 const options = [
     {
         label: 'The color red',
         value: 'red'
-    },
-    {
-        label: 'The color green',
-        value: 'green'
-    },
-    {
-        label: 'A shade of blue',
-        value: 'blue'
     }
 ];
 
