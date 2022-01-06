@@ -40,6 +40,9 @@ export default () => {
             <div>
                 Some new stuff here!
             </div>
+            <div>
+                Div change 2.
+            </div>
         </div>
     );
 };
