@@ -23,7 +23,6 @@ const Dropdown = ({ options }) => {
                     <div className="menu visible transition">
                         {renderedOptions}
                     </div>
-                    <div>DELETE THIS ONCE</div>
                 </div>
             </div>
         </div>
