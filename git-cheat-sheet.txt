@@ -1,0 +1,10 @@
+git status
+- shows if you have un-committed changes, or 
+if you are at a clean state.
+
+git add .
+- can replace '.' with any file name or directory
+- adds files to staging area (to be committed)
+
+git commit -m "your message here"
+- save the changes in staging area to GIT HISTORY
