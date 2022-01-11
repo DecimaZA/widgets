@@ -1,14 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import textColors from './textColors.css';
 
-const Dropdown = ({ options, selected, onSelectedChange }) => {
+const Dropdown = ({ label, options, selected, onSelectedChange }) => {
     const [open, setOpen] = useState(false);
+    const ref = useRef();
 
     useEffect(() => {
-        document.body.addEventListener('click', () => {
-           
-            setOpen(false);
-        }, { capture: true });
-    }, []);
+        const onBodyClick = (event) => {
+          if (ref.current.contains(event.target)) {
+            return;
+          }
+          setOpen(false);
+        };
+        document.body.addEventListener("click", onBodyClick, { capture: true });
+     
+        return () => {
+          document.body.removeEventListener("click", onBodyClick, {
+            capture: true,
+          });
+        };
+      }, []);
 
     const renderedOptions = options.map((option) => {
         if (option.value === selected.value) {
@@ -21,7 +32,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
                 className="item"
                 onClick={() => {
                     
-                    onSelectedChange(option)
+                onSelectedChange(option)
                 }}
             >
                 {option.label}
@@ -30,15 +41,14 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
     });
 
     return (
-        <div className="ui form">
+        <div ref={ref} className="ui form">
             <div className="field">
                 <label className="label">
-                    Select a color!
+                    {label}
                 </label>
                 <div 
                     onClick={() => {
-                        
-                        setOpen(!open)}} 
+                    setOpen(!open)}} 
                     className={`ui selection dropdown ${open ? 'visible active' : ''}`}
                 >
                     <i className="dropdown icon"></i>
@@ -51,6 +61,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
                         {renderedOptions}
                     </div>
                 </div>
+                <p>TEXT OF NOTE!</p>
             </div>
         </div>
     );
