@@ -5,6 +5,7 @@ import Dropdown from './Components/Dropdown';
 import textColors from './Components/textColors.css';
 import Translate from './Components/Translate';
 import Route from './Components/Route';
+import Header from './Components/Header';
 
 const items = [
     {
@@ -36,34 +37,11 @@ const options = [
     }
 ];
 
-const showAccordion = () => {
-    if (window.location.pathname === '/') {
-        return <Accordion items={items} />;
-    }
-};
-
-const showList = () => {
-    if (window.location.pathname === '/list') {
-        return <Search />;
-    }
-};
-
-const showDropdown = () => {
-    if (window.location.pathname === '/dropdown') {
-        return <Dropdown />
-    }
-};
-
-const showTranslate = () => {
-    if (window.location.pathname === '/translate') {
-        return <Translate />
-    }
-};
-
 export default () => {
     const [selected, setSelected] = useState(options[0]);
     return (
         <div>
+            <Header />
             <Route path="/">
                 <Accordion items={items} />
             </Route>
